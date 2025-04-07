@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Multi-line Message Rotator</title>
+  <style>
+    body {
+      margin: 0;
+      background: transparent;
+      font-family: Verdana, sans-serif;
+    }
+
+    .scroll-container {
+      width: 100%;
+      min-height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 5px;
+      box-sizing: border-box;
+    }
+
+    .scroll-item {
+      display: none;
+      width: 100%;
+    }
+
+    .scroll-item.visible {
+      display: block;
+      animation: fadeIn 0.8s ease-in-out;
+    }
+
+    .title {
+      font-size: 18px;
+      font-weight: bold;
+      color: #ff0000;
+      margin-bottom: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .description {
+      font-size: 16px;
+      color: #000;
+      white-space: pre-line;
+      line-height: 1.6;
+      width: 100%;
+      text-align: center;
+      padding: 5px;
+      box-sizing: border-box;
+      
+    }
+
+    .latest-label {
+      font-size: 12px;
+      color: white;
+      background-color: red;
+      padding: 2px 6px;
+      border-radius: 4px;
+      animation: blink 2s infinite;
+    }
+
+    @keyframes blink {
+      0%, 50%, 100% { opacity: 1; }
+      25%, 75% { opacity: 0; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Mobile Styles */
+    @media (max-width: 600px) {
+      .scroll-container {
+        padding: 3px;
+      }
+
+      .title {
+        font-size: 16px;
+      }
+
+      .description {
+        font-size: 14px;
+        padding: 4px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="scroll-container">
+    <div class="scroll-item visible">
+      <div class="title">
+        <span class="latest-label">LATEST</span>
+        🚨 Shed Order 🚨
+      </div>
+      <div class="description">
+<b>TGT-VSG Doubling work : Issue of Caution Order</b>
+      </div>
+    </div>
+
+    <div class="scroll-item">
+      <div class="title">
+        <span class="latest-label">LATEST</span>
+        ⚠️ Safety Circular ⚠️
+      </div>
+      <div class="description">
+<b>Securing and release of vehicles/load/train/Loco
+in station/yard or in block section</b>
+      </div>
+    </div>
+
+    <div class="scroll-item">
+      <div class="title">
+        <span class="latest-label">LATEST</span>
+        📢 Counselling Subject 📢
+      </div>
+      <div class="description"><b>LHB coach bypass procedure</b>
+      </div>
+    </div>
+    <div class="scroll-item">
+      <div class="title"><span class="latest-label">LATEST</span>🛠️ Loco Operation Instructions 🛠️</div>
+      <div class="description">
+<b>Procedure for conducting Brake Feel Test
+and Brake Power test</b>
+      </div>
+  </div>
+ <script>
+    let index = 0;
+    const items = document.querySelectorAll(".scroll-item");
+
+    function showNextItem() {
+      items[index].classList.remove("visible");
+      index = (index + 1) % items.length;
+      items[index].classList.add("visible");
+      setTimeout(showNextItem, 5000);
+    }
+
+    setTimeout(showNextItem, 5000);
+  </script>
+</body>
+</html>
+
