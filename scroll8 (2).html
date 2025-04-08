@@ -131,18 +131,23 @@ and Brake Power test</b>
       </div>
   </div>
  <script>
-    let index = 0;
+  window.onload = function () {
     const items = document.querySelectorAll(".scroll-item");
+    let index = 0;
 
-    function showNextItem() {
-      items[index].classList.remove("visible");
-      index = (index + 1) % items.length;
-      items[index].classList.add("visible");
-      setTimeout(showNextItem, 5000);
-    }
+    // Show the first item immediately
+    items[index].classList.add("visible");
 
-    setTimeout(showNextItem, 5000);
-  </script>
+    // Start auto rotation after a small delay (ensures iframe loads first)
+    setTimeout(() => {
+      setInterval(() => {
+        items[index].classList.remove("visible");
+        index = (index + 1) % items.length;
+        items[index].classList.add("visible");
+      }, 4000);
+    }, 100); // delay to let iframe load completely
+  };
+</script>
 </body>
 </html>
 
