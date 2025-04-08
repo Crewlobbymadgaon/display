@@ -131,15 +131,17 @@ and Brake Power test</b>
       </div>
   </div>
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-    let index = 0;
+  document.addEventListener("DOMContentLoaded", function () {
     const items = document.querySelectorAll(".scroll-item");
+    let index = 0;
 
-    setInterval() => {
-      items.forEach(item => item.classList.remove("visible"));
-      items[index].classList.add("visible");
+    items[index].classList.add("visible");
+
+    setInterval(() => {
+      items[index].classList.remove("visible");
       index = (index + 1) % items.length;
-    }, 6000);
+      items[index].classList.add("visible");
+    }, 4000);
   });
 </script>
 </body>
