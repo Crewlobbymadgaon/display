@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let index = 0;
     const items = document.querySelectorAll(".scroll-item");
 
-    setInterval(() => {
+    setInterval() => {
       items.forEach(item => item.classList.remove("visible"));
       items[index].classList.add("visible");
       index = (index + 1) % items.length;
