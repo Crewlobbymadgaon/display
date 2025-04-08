@@ -130,19 +130,21 @@ in station/yard or in block section</b>
 and Brake Power test</b>
       </div>
   </div>
- <script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
     let index = 0;
     const items = document.querySelectorAll(".scroll-item");
 
-    function showNextItem() {
-      items[index].classList.remove("visible");
-      index = (index + 1) % items.length;
+    function rotateMessages() {
+      items.forEach(item => item.classList.remove("visible"));
       items[index].classList.add("visible");
-      setTimeout(showNextItem, 5000);
+      index = (index + 1) % items.length;
     }
 
-    setTimeout(showNextItem, 5000);
-  </script>
+    rotateMessages(); // Show the first message immediately
+    setInterval(rotateMessages, 4000); // Rotate every 4 seconds
+  });
+</script>
 </body>
 </html>
 
