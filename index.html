@@ -132,16 +132,17 @@ and Brake Power test</b>
   </div>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    const items = document.querySelectorAll(".scroll-item");
     let index = 0;
+    const items = document.querySelectorAll(".scroll-item");
 
-    items[index].classList.add("visible");
-
-    setInterval(() => {
-      items[index].classList.remove("visible");
-      index = (index + 1) % items.length;
+    function rotateMessages() {
+      items.forEach(item => item.classList.remove("visible"));
       items[index].classList.add("visible");
-    }, 4000);
+      index = (index + 1) % items.length;
+    }
+
+    rotateMessages(); // Show the first message immediately
+    setInterval(rotateMessages, 5000); // Rotate every 4 seconds
   });
 </script>
 </body>
