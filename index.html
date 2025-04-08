@@ -135,14 +135,11 @@ and Brake Power test</b>
     let index = 0;
     const items = document.querySelectorAll(".scroll-item");
 
-    function rotateMessages() {
+    setInterval(() => {
       items.forEach(item => item.classList.remove("visible"));
       items[index].classList.add("visible");
       index = (index + 1) % items.length;
-    }
-
-    rotateMessages(); // Show the first message immediately
-    setInterval(rotateMessages, 6000); // Rotate every 4 seconds
+    }, 4000);
   });
 </script>
 </body>
