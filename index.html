@@ -130,20 +130,23 @@ in station/yard or in block section</b>
 and Brake Power test</b>
       </div>
   </div>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    let index = 0;
+<<script>
+  window.onload = function () {
     const items = document.querySelectorAll(".scroll-item");
+    let index = 0;
 
-    function rotateMessages() {
-      items.forEach(item => item.classList.remove("visible"));
-      items[index].classList.add("visible");
-      index = (index + 1) % items.length;
-    }
+    // Show the first item immediately
+    items[index].classList.add("visible");
 
-    rotateMessages(); // Show the first message immediately
-    setInterval(rotateMessages, 5000); // Rotate every 4 seconds
-  });
+    // Start auto rotation after a small delay (ensures iframe loads first)
+    setTimeout(() => {
+      setInterval(() => {
+        items[index].classList.remove("visible");
+        index = (index + 1) % items.length;
+        items[index].classList.add("visible");
+      }, 4000);
+    }, 100); // delay to let iframe load completely
+  };
 </script>
 </body>
 </html>
