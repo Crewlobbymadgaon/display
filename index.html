@@ -1,0 +1,161 @@
+04.22 01:13
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Uniform Message Rotator</title>
+  <style>
+    body {
+      margin: 0;
+      background: transparent;
+      font-family: Verdana, sans-serif;
+    }
+
+    .scroll-container {
+      width: 95%;
+      height: 240px; /* fixed container height */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 10px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .scroll-item {
+      position: absolute;
+      width: 100%;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .scroll-item.visible {
+      opacity: 1;
+      z-index: 1;
+    }
+
+    .message-box {
+      background-color: rgba(255, 255, 255, 0.85); /* transparent white */
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 600px;
+      height: 200px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+
+    .latest-label {
+      font-size: 14px;
+      color: white;
+      background-color: red;
+      padding: 4px 10px;
+      border-radius: 4px;
+    }
+
+    .title {
+      font-size: 18px;
+      font-weight: bold;
+      color: #d10000;
+    }
+
+    .description {
+      font-size: 17px;
+      color: #000;
+      white-space: pre-line;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      .title { font-size: 20px; }
+      .description { font-size: 18px; }
+      .message-box {
+        height: auto;
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="scroll-container">
+    <div class="scroll-item visible">
+      <div class="message-box">
+        <div class="header">
+          <div class="latest-label">LATEST</div>
+          <div class="title"> Shed Order </div>
+        </div>
+        <div class="description">
+          <b>Shifting of TOK Station yard Shunt signal SH-48</b>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-item">
+      <div class="message-box">
+        <div class="header">
+          <div class="latest-label">LATEST</div>
+          <div class="title">⚠️ Safety Circular ⚠️</div>
+        </div>
+        <div class="description">
+          <b>Securing and release of vehicles/load/train/Loco
+          in station/yard or in block section</b>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-item">
+      <div class="message-box">
+        <div class="header">
+          <div class="latest-label">LATEST</div>
+          <div class="title"> Counselling Subject </div>
+        </div>
+        <div class="description">
+          <b>LHB coach bypass procedure</b>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-item">
+      <div class="message-box">
+        <div class="header">
+          <div class="latest-label">LATEST</div>
+          <div class="title">🛠️ Loco Operation Instructions 🛠️</div>
+        </div>
+        <div class="description">
+          <b>Procedure for conducting Brake Feel Test
+          and Brake Power test</b>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    window.onload = function () {
+      const items = document.querySelectorAll(".scroll-item");
+      let index = 0;
+
+      setInterval(() => {
+        items[index].classList.remove("visible");
+        index = (index + 1) % items.length;
+        items[index].classList.add("visible");
+      }, 5000);
+    };
+  </script>
+</body>
+</html>
