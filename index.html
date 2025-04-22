@@ -85,8 +85,24 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-} overflow: hidden;
+  overflow: hidden;
     }
+   
+    .description a {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 6px 14px;
+  background-color: #007bff; /* Bootstrap blue */
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 15px;
+  transition: background-color 0.3s ease;
+}
+
+.description a:hover {
+  background-color: #0056b3; /* Darker on hover */
 }
 
     @media (max-width: 600px) {
